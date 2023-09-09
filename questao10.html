@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Questão 10</title>
+</head>
+
+<body>
+    <div class="container my-3">
+        <p><a href="index.html">Voltar ao Índice</a></p>
+        <h1 class="display-2">Questão 10</h1>
+        <p class="lead">Usando somente estilos baseados em classes do Bootstrap 5, aprimore o formulário da questão 7 adiconando as seguintes situações de validação de campos:</p>
+        <ul class="lead">
+            <li>O campo Nome Completo deve estar marcado como válido;</li>
+            <li>O campo CPF deve estar marcado como inválido e com a mensagem de validação "Campo obrigatório";</li>
+            <li>O campo Data de Nascimento deve estar marcado como válido;</li>
+            <li>O campo Gênero deve estar marcado como inválido e com a mensagem de validação "Campo obrigatório";</li>
+            <li>O campo Endereço deve estar marcado como válido.</li>
+        </ul>
+        <p class="lead">*Os campos válidos devem ter valores fictícios preenchidos nos campos.</p>
+        <hr>
+    </div>
+    <!-- Valor: 1.5 pontos -->
+    <!-- FAZER AQUI -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-8 mx-auto">
+                <h3 class="display-5 ">Cadastro de Cliente</h3>
+                <hr>
+            </div>
+        </div>
+
+      <form method="post" class="needs-validation" novalidate>
+        <div class="row mb-3">
+            <div class="col-xl-6 col-lg-8 mx-auto">
+                <label for="text" class="form-label">Nome Completo</label>
+                <input value="Fulando de Tal" type="text" class="form-control" id="text">
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-xl-2 col-lg-8 mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="cpf" class="form-control" id="cpf" pattern="[0-9]{11}" required>
+                <div class="invalid-feedback">Campo Obrigatório</div>
+            </div>
+            <div class="col-xl-2 col-lg-8 mb-3">
+                <label for="data" class="form-label">Data de Nascimento</label>
+                <input value="0101-01-01" type="date" class="form-control" id="data">
+            </div>
+            <div class="col-xl-2 col-lg-8 mb-3">
+                <label for="genero" class="form-label">Gênero</label>
+                <select class="form-select" aria-label="Default select example" required>
+                    <option selected disabled value="">Selecione um gênero</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="feminino">Outro</option>
+                </select>
+                <div class="invalid-feedback">Campo Obrigatório</div>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-xl-6 col-lg-8">
+                <label for="endereco" class="form-label">Endereço Completo</label>
+                <textarea type="text" class="form-control" id="endereco">Rua dos Programadores, 1010 - Tecnolândia/Es - Brasil</textarea>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-3">
+            <div class="col-xl-6 col-lg-8">
+                <button class="btn btn-primary" type="submit">Salvar</button>
+            </div>
+        </div>
+
+      </form>
+    </div>
+
+
+
+
+
+<script>
+  
+(function () {
+  'use strict'
+
+  var forms = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
+</body>
+
+</html>
